@@ -57,3 +57,5 @@ collatz n
     | n == 1 = [1]
     | even n = n : collatz (div n 2)
     | odd n = n : collatz (n*3+1)
+
+numLongChains x = length (filter (\xs -> length xs > 15) (map collatz x))
