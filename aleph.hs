@@ -59,3 +59,12 @@ collatz n
     | odd n = n : collatz (n*3+1)
 
 numLongChains x = length (filter (\xs -> length xs > 15) (map collatz x))
+
+sum' :: (Num a) => [a] -> a
+sum' xs = foldl (\acc x -> acc + x) 0 xs
+
+sum'' :: (Num a) => [a] -> a
+sum'' = foldl (+) 0
+
+elem' :: (Eq a) => a -> [a] -> Bool
+elem' y ys = foldl (\acc x -> if x == y then True else acc) False ys
