@@ -25,9 +25,6 @@ quicksort (x:xs) =
     in quicksort smallerOrEqual ++ [x] ++ quicksort larger
 
 
-f = [fib x | x <- [0,1..]]
-
-
 fib :: (Integral a) => a -> a
 fib 0 = 1
 fib 1 = 1
@@ -69,5 +66,8 @@ sum'' = foldl (+) 0
 elem' :: (Eq a) => a -> [a] -> Bool
 elem' y ys = foldl (\acc x -> if x == y then True else acc) False ys
 
-map' :: (a -> b) -> [a] -> [b]
-map' f xs = foldr (\x acc -> f x : acc) [] xs
+map'' :: (a -> b) -> [a] -> [b]
+map'' f xs = foldr (\x acc -> f x : acc) [] xs
+
+dotprime :: (b -> c) -> (a -> b) -> a -> c
+dotprime f g = \x -> f $ g x
